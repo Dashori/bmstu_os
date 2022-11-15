@@ -16,7 +16,7 @@
 
 посмотреть лог:
 
-`sudo cat /var/log/syslog | grep dasha_deamon`
+`sudo cat /var/log/syslog | grep dasha_deamon` (за такое название демона хихикали)
 
 вызывать SIGHUB:
 
