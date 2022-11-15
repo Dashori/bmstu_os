@@ -102,13 +102,13 @@ void daemonize(const char *name)
         syslog(LOG_ERR, "Невозможно определить максимальный номер дескриптора файла\n");
     }
 
-    pid_t deamon_pid;
+    pid_t pid;
 
-    if ((deamon_pid = fork()) == -1)
+    if ((pid = fork()) == -1)
     {
         syslog(LOG_ERR, "Ошибка вызова fork\n");
     } 
-    else if (deamon_pid != 0)
+    else if (pid != 0)
     {
         exit(0);
     }
