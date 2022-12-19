@@ -43,7 +43,7 @@ void *fork_client(void *temp_struct)
 			clnt_perror(clnt, "bakery_proc_1 failed");
 		}
 
-		sleep(interval);
+		 sleep(interval);
 		
 		bakery_proc_1_arg.op = ENTER_CRIT_SECTION; 
 		bakery_proc_1_arg.num = response->op;
@@ -81,23 +81,56 @@ bakery_prog_1(char *host)
 		exit(1);
 	}
 
-	pid_t children[MAX_CLIENT];
-	pthread_t thread;
+	// pid_t children[MAX_CLIENT];
+	// pthread_t thread;
 
-	for (int i = 0; i < MAX_CLIENT; i++)
+	// for (int i = 0; i < MAX_CLIENT; i++)
+	// {
+	// 	sleep(1);
+
+	// 	struct to_fork newChild1 = {clnt, i, children};
+	// 	struct to_fork *newChild = &newChild1;
+
+	// 	// pthread_create(&thread, NULL, fork_client, (void *)newChild);
+		
+	// 	if (i == MAX_CLIENT - 1)
+	// 		pthread_join(thread, NULL);		
+	// }
+
+	srand(time(NULL));
+	int interval = rand() % 3 + 1;
+	sleep(interval);
+
+	bakery_proc_1_arg.op = GET_NUMBER;
+	response = bakery_proc_1(&bakery_proc_1_arg, clnt);
+
+	printf("\nClient pid = %d queue %d \n", getpid(), response->num);
+	
+	if (response == (struct BAKERY *) NULL) 
 	{
-		struct to_fork newChild1 = {clnt, i, children};
-		struct to_fork *newChild = &newChild1;
-
-		sleep(1);
-
-		pthread_create(&thread, NULL, fork_client, (void *)newChild);		
+		clnt_perror(clnt, "bakery_proc_1 failed");
 	}
+
+	sleep(interval);
+	
+	bakery_proc_1_arg.op = ENTER_CRIT_SECTION; 
+	bakery_proc_1_arg.num = response->op;
+	bakery_proc_1_arg.pid = getpid();
+	response = bakery_proc_1(&bakery_proc_1_arg, clnt);
+
+	if (response == (struct BAKERY *) NULL) 
+	{
+		clnt_perror(clnt, "bakery_proc_1 failed");
+	}
+
+	printf("%d get %d (sleep = %d)\n", response->pid, response->result, interval);
+	clnt_destroy(clnt);
 }
 
 int
 main (int argc, char *argv[])
 {
+	setbuf(stdin, NULL);
 	char *host;
 
 	if (argc < 2) 

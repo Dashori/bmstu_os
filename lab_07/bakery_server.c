@@ -11,13 +11,12 @@
 #include "bakery.h"
 
 
-
-struct targ_t
+typedef struct target
 {
-	int num;
+	int num; // очередь
 	int res;
-	int id;
-};
+	int id;  
+} target_t;
 
 int choosing[MAX_CLIENT] = { 0 };
 int number[MAX_CLIENT] = { 0 };
@@ -27,7 +26,7 @@ int num = 0;
 void *
 get_number(void *arg)
 {
-	struct targ_t *targ = arg;
+	target_t *targ = arg;
 	int i = num;
 	num++;
 	targ->id = i;
@@ -46,13 +45,14 @@ get_number(void *arg)
 void *
 bakery(void *arg)
 {
-	struct targ_t *targ = arg;
+	target_t *targ = arg;
 	int i = targ->id;
 
 	for (int j = 0; j < MAX_CLIENT; j++) 
 	{
 		while (choosing[j]);
-		while ((number[j] > 0) && (number[j] < number[i] || (number[j] == number[i] && j < i)));
+		while ((number[j] > 0) && (number[j] < number[i] || 
+		(number[j] == number[i] && j < i)));
 	}
 	
 	targ->res = symbol;
@@ -71,7 +71,8 @@ bakery_proc_1_svc(struct BAKERY *argp, struct svc_req *rqstp)
 		case GET_NUMBER:
 		{
 			pthread_t thread;
-			struct targ_t tres;
+			target_t tres;
+			// get_number(&tres);
 			pthread_create(&thread, NULL, get_number, &tres);
 			pthread_join(thread, NULL);
 			result.pid = argp->pid;
@@ -82,7 +83,7 @@ bakery_proc_1_svc(struct BAKERY *argp, struct svc_req *rqstp)
 		case ENTER_CRIT_SECTION:	
 		{
 			pthread_t thread;
-			struct targ_t tres;
+			target_t tres;
 			tres.id = argp->num;
 			pthread_create(&thread, NULL, bakery, &tres);
 			pthread_join(thread, NULL);
@@ -91,6 +92,9 @@ bakery_proc_1_svc(struct BAKERY *argp, struct svc_req *rqstp)
 			result.op = tres.id;
 			break;
 		}
+		default:
+			break;
+
 	}
 
 	return &result;
