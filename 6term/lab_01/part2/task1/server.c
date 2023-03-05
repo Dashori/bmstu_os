@@ -18,36 +18,31 @@ int main()
 		return EXIT_FAILURE;
 	}
 
-	struct sockaddr from; 
-	socklen_t fromlen;
+	struct sockaddr server;
+	server.sa_family = AF_UNIX;
+	strcpy(server.sa_data, "mysocket.s");
 
-	struct sockaddr to;
-	to.sa_family = AF_UNIX;
-	strcpy(to.sa_data, "mysocket.s");
-
-	if (bind(sockfd, &to, strlen(to.sa_data) + 1 + sizeof(to.sa_family)) < 0)
+	if (bind(sockfd, &server, sizeof(server)) < 0)
 	{
 		perror("Bind error");
 		return EXIT_FAILURE;
 	}
 
+	struct sockaddr client; 
+	socklen_t clientlen;
+
 	char buf[BUF_SIZE];
 	while(1)
 	{
-		int bytes = recvfrom(sockfd, buf, sizeof(buf), 0, &from, &fromlen);
+		int bytes = recvfrom(sockfd, buf, sizeof(buf), 0, &client, &clientlen);
 
 		if (bytes < 0)
 		{
 			perror("recvfrom error");
-			close(sockfd);
-			unlink("mysocket.s");
-
 			return EXIT_FAILURE;
 		}
 
-		printf("Server recieved: %s \n", buf);
-
-		return EXIT_SUCCESS;
+		printf("Server RECIEVED: %s \n", buf);
 	}
 
 	return EXIT_SUCCESS;

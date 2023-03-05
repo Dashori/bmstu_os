@@ -17,23 +17,23 @@ int main()
 		return EXIT_FAILURE;
 	}
 
-	struct sockaddr from;
-	from.sa_family = AF_UNIX;
+	struct sockaddr client;
+	client.sa_family = AF_UNIX;
     char buf[BUF_SIZE];
-    snprintf(buf, BUF_SIZE, "client %d", getpid()); // 14
-    strcpy(from.sa_data, buf);
+    sprintf(buf, "client %d", getpid()); // 14
+    strcpy(client.sa_data, buf);
 
-	struct sockaddr to;
-    to.sa_family = AF_UNIX;
-    strcpy(to.sa_data, "mysocket.s");
+	struct sockaddr server;
+    server.sa_family = AF_UNIX;
+    strcpy(server.sa_data, "mysocket.s");
 
-	if (sendto(sockfd, buf, strlen(buf) + 1, 0, &to, strlen(to.sa_data) + sizeof(to.sa_family) + 1) < 0)
+	if (sendto(sockfd, buf, strlen(buf) + 1, 0, &server, sizeof(server)) < 0)
 	{
 		perror("sendto failed");
 		return EXIT_FAILURE;
 	}
 
-	printf("Client send message: %d", getpid());
+	printf("Client SEND message: %d", getpid());
 
 	close(sockfd);
 	unlink(buf);
