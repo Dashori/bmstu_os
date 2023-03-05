@@ -51,10 +51,10 @@ int main()
             message[4] += i;
             close(sockets[i][0]);
             read(sockets[i][1], buf, sizeof(buf));
-            printf("Parrent sent: %s\n", message);
+            printf("Parent sent: %s\n", message);
             sleep(2);
             write(sockets[i][1], message, sizeof(message));
-            printf("Parrent recieved: %s\n", buf);
+            printf("Parent recieved: %s\n", buf);
             close(sockets[i][1]);
         }
 
