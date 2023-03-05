@@ -19,19 +19,19 @@ int main()
 
 	struct sockaddr client;
 	client.sa_family = AF_UNIX;
-    char buf[BUF_SIZE];
-    sprintf(buf, "%d", getpid()); // 14
-    strcpy(client.sa_data, buf);
+	char buf[BUF_SIZE];
+	sprintf(buf, "%d", getpid()); // 14
+	strcpy(client.sa_data, buf);
 
-    if (bind(sockfd, &client, strlen(client.sa_data) + 1 + sizeof(client.sa_family)) < 0)
+	if (bind(sockfd, &client, strlen(client.sa_data) + 1 + sizeof(client.sa_family)) < 0)
 	{
 		perror("Bind error");
 		return EXIT_FAILURE;
 	}
 
-    struct sockaddr server;
-    server.sa_family = AF_UNIX;
-    strcpy(server.sa_data, "mysocket.s");
+	struct sockaddr server;
+	server.sa_family = AF_UNIX;
+	strcpy(server.sa_data, "mysocket.s");
 	socklen_t serverlen;
 
 	if (sendto(sockfd, buf, strlen(buf) + 1, 0, &server, sizeof(server)) < 0)
