@@ -5,8 +5,6 @@
 #include <unistd.h>
 #include <string.h>
 
-#define BUF_SIZE 1024
-
 int main()
 {
 	int sockfd = socket(AF_UNIX, SOCK_DGRAM, 0);
@@ -19,11 +17,11 @@ int main()
 
 	struct sockaddr client;
 	client.sa_family = AF_UNIX;
-	char buf[BUF_SIZE];
-	sprintf(buf, "%d", getpid()); // 14
+	char buf[14];
+	sprintf(buf, "%d", getpid());
 	strcpy(client.sa_data, buf);
 
-	if (bind(sockfd, &client, strlen(client.sa_data) + 1 + sizeof(client.sa_family)) < 0)
+	if (bind(sockfd, &client, sizeof(client)) < 0)
 	{
 		perror("Bind error");
 		return EXIT_FAILURE;

@@ -5,9 +5,6 @@
 #include <unistd.h>
 #include <string.h>
 
-#define BUF_SIZE 1024
-
-
 int main()
 {
 	int sockfd = socket(AF_UNIX, SOCK_DGRAM, 0);
@@ -31,7 +28,7 @@ int main()
 	struct sockaddr client; 
 	socklen_t clientlen;
 
-	char buf[BUF_SIZE];
+	char buf[14];
 	while(1)
 	{
 		int bytes = recvfrom(sockfd, buf, sizeof(buf), 0, &client, &clientlen);

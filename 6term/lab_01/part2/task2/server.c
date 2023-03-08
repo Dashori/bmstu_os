@@ -5,9 +5,6 @@
 #include <unistd.h>
 #include <string.h>
 
-#define BUF_SIZE 1024
-
-
 int main()
 {
 	int sockfd = socket(AF_UNIX, SOCK_DGRAM, 0);
@@ -31,7 +28,7 @@ int main()
 	struct sockaddr client; 
 	socklen_t clientlen;
 
-	char buf[BUF_SIZE];
+	char buf[14];
 	while(1)
 	{
 		int bytes = recvfrom(sockfd, buf, sizeof(buf), 0, &client, &clientlen);
@@ -43,10 +40,9 @@ int main()
 		}
 
 		printf("Server RECIEVED from client: %s \n", buf);
-		printf("Client family: %d, data %s, len %d\n", client.sa_family, client.sa_data, client.sa_len);
 
-        char send[BUF_SIZE];
-        sprintf(send, "forward %s", buf);
+        char send[14];
+        sprintf(send, "%s %d", buf, getpid());
 
         if (sendto(sockfd, send, strlen(send) + 1, 0, &client, sizeof(client)) < 0)
         {
@@ -55,6 +51,8 @@ int main()
         }
 
 		printf("Server SEND to client: %s \n", send);
+
+		unlink(buf);
 	}
 
 	return EXIT_SUCCESS;
