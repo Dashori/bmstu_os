@@ -1,0 +1,122 @@
+
+
+MAPS
+
+address                   perms  offset  dev   inode                      pathname
+56135d36d000-56135d36f000 r--p 00000000 103:05 1324111                   /home/dashori/bmstu_analysis_of_algorithms.cpp-main/lab_04/code/a.out
+56135d36f000-56135d376000 r-xp 00002000 103:05 1324111                   /home/dashori/bmstu_analysis_of_algorithms.cpp-main/lab_04/code/a.out
+56135d376000-56135d37a000 r--p 00009000 103:05 1324111                   /home/dashori/bmstu_analysis_of_algorithms.cpp-main/lab_04/code/a.out
+56135d37b000-56135d37c000 r--p 0000d000 103:05 1324111                   /home/dashori/bmstu_analysis_of_algorithms.cpp-main/lab_04/code/a.out
+56135d37c000-56135d37d000 rw-p 0000e000 103:05 1324111                   /home/dashori/bmstu_analysis_of_algorithms.cpp-main/lab_04/code/a.out
+56135e509000-56135e52a000 rw-p 00000000 00:00 0                          [heap]
+7fcb50000000-7fcb50021000 rw-p 00000000 00:00 0 
+7fcb50021000-7fcb54000000 ---p 00000000 00:00 0 
+7fcb54000000-7fcb54021000 rw-p 00000000 00:00 0 
+7fcb54021000-7fcb58000000 ---p 00000000 00:00 0 
+7fcb58000000-7fcb58021000 rw-p 00
+000000 00:00 0 
+7fcb58021000-7fcb5c000000 ---p 00000000 00:00 0 
+7fcb5dd49000-7fcb5dd4a000 ---p 00000000 00:00 0 
+7fcb5dd4a000-7fcb5e54a000 rw-p 00000000 00:00 0 
+7fcb5e54a000-7fcb5e54b000 ---p 00000000 00:00 0 
+7fcb5e54b000-7fcb5ed4b000 rw-p 00000000 00:00 0 
+7fcb5ed4b000-7fcb5ed4c000 ---p 00000000 00:00 0 
+7fcb5ed4c000-7fcb5f54c000 rw-p 00000000 00:00 0 
+7fcb5f54c000-7fcb5f54d000 ---p 00000000 00:00 0 
+7fcb5f54d000-7fcb5fd51000 rw-p 00000000 00:00 0 
+7fcb5fd51000-7fcb5fd5f000 r--p 00000000 103:05 657513                    /usr/lib/x86_64-linux-gnu/libm.so.6
+7fcb5fd5f000-7fcb5fddb000 r-xp 0000e000 103:05 657513                    /usr/lib/x86_64-linux-gnu/libm.so.6
+7fcb5fddb000-7fcb5fe36000 r--p 0008a000 103:05 657513                    /usr/lib/x86_64-linux-gnu/libm.so.6
+7fcb5fe36000-7fcb5fe37000 r--p 000e4000 103:05 657513                    /usr/lib/x86_64-linux-gnu/libm.so.6
+7fcb5fe37000-7fcb5fe38000 rw-p 000e5000 103:05 657513                    /usr/lib/x86_64-linux-gnu/libm.so.6
+7fcb5fe38000-7fcb5fe60
+000 r--p 00000000 103:05 657505                    /usr/lib/x86_64-linux-gnu/libc.so.6
+7fcb5fe60000-7fcb5fff5000 r-xp 00028000 103:05 657505                    /usr/lib/x86_64-linux-gnu/libc.so.6
+7fcb5fff5000-7fcb6004d000 r--p 001bd000 103:05 657505                    /usr/lib/x86_64-linux-gnu/libc.so.6
+7fcb6004d000-7fcb60051000 r--p 00214000 103:05 657505                    /usr/lib/x86_64-linux-gnu/libc.so.6
+7fcb60051000-7fcb60053000 rw-p 00218000 103:05 657505                    /usr/lib/x86_64-linux-gnu/libc.so.6
+7fcb60053000-7fcb60060000 rw-p 00000000 00:00 0 
+7fcb60060000-7fcb60063000 r--p 00000000 103:05 663716                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7fcb60063000-7fcb6007a000 r-xp 00003000 103:05 663716                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7fcb6007a000-7fcb6007e000 r--p 0001a000 103:05 663716                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7fcb6007e000-7fcb6007f000 r--p 0001d000 103:05 663716                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7fcb6007f000-7fcb60080000 rw-p 0001e000 103:05 663716                    /usr/lib/x86_64-linux-gnu/libgcc_s.so.1
+7fcb60080000-7fcb6011a000 r--p 00000000 103:05 655736                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7fcb6011a000-7fcb6022a000 r-xp 0009a000 103:05 655736                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7fcb6022a000-7fcb60299000 r--p 001aa000 103:05 655736                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7fcb60299000-7fcb602a4000 r--p 00218000 103:05 655736                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7fcb602a4000-7fcb602a7000 rw-p 00223000 103:05 655736                    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30
+7fcb602a7000-7fcb602aa000 rw-p 00000000 00:00 0 
+7fcb602c6000-7fcb602c8000 rw-p 00000000 00:00 0 
+7fcb602c8000-7fcb602ca000 r--p 00000000 103:05 657497                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7fcb602ca000-7fcb602f4000 r-xp 00002000 103:05 657497                    /usr/lib/x86_64-linux-gnu
+/ld-linux-x86-64.so.2
+7fcb602f4000-7fcb602ff000 r--p 0002c000 103:05 657497                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7fcb60300000-7fcb60302000 r--p 00037000 103:05 657497                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7fcb60302000-7fcb60304000 rw-p 00039000 103:05 657497                    /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+7ffcbaa8c000-7ffcbaaad000 rw-p 00000000 00:00 0                          [stack]
+7ffcbab9c000-7ffcbaba0000 r--p 00000000 00:00 0                          [vvar]
+7ffcbaba0000-7ffcbaba2000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 --xp 00000000 00:00 0                  [vsyscall]
+
+
+STAT
+
+pid  17505
+comm  (a.out)
+state  S
+ppid  16335
+pgrp  17505
+session  16328
+tty_nr  34817
+tpgid  17505
+flags  1077936128
+minflt  175
+cminflt  5662
+majflt  0
+cmajflt  0
+utime  0
+stime  1
+cutime  19
+cstime  3
+priority  20
+nice  0
+num_threads  1
+itrealvalue  0
+starttime  5013060
+vsize  241127424
+rss  931
+rsslim  18446744073709551615
+startcode  94641168248832
+endcode  94641168275213
+startstack  140723440233808
+kstkesp  0
+kstkeip  0
+signal  0
+blocked  0
+sigignore  0
+sigcatch  0
+wchan  1
+nswap  0
+cnswap  0
+exit_signal  17
+processor  2
+rt_priority  0
+policy  0
+delayacct_blkio_ticks  0
+guest_time  0
+cguest_time  0
+start_data  94641168301056
+end_data  94641168302104
+start_brk  94641186705408
+arg_start  140723440239300
+arg_end  140723440239308
+env_start  140723440239308
+env_end  140723440242672
+exit_code  0
+
+
+
+TASK
+
+17505  
