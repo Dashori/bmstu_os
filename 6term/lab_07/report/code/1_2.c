@@ -19,6 +19,14 @@ void *thread_func2(void *fs)
     return NULL;
 }
 
+void *thread_func(void *fs)
+{
+    char c;
+    while (fscanf((FILE *)fs, "%c", &c) == 1)
+        fprintf(stdout, "subthread: %d  %c\n", c);
+    return NULL;
+}
+
 int main(void)
 {
     int fd = open("alphabet.txt", O_RDONLY);
@@ -28,23 +36,24 @@ int main(void)
     setvbuf(fs[1], buff[1], _IOFBF, 20);
     char c;
     pthread_t threads[2];
-    void *(*thread_funcs[2])(void *) = 
-        {thread_func1, thread_func2};
+    // void *(*thread_funcs[2])(void *) = 
+    //     {thread_func1, thread_func2};
 
     for (size_t i = 0; i < 2; i++)
+    {
         if (pthread_create(&threads[i], NULL,
-                     thread_funcs[i], fs[i]) != 0)
+                     *thread_func, fs[i]) != 0)
         {
             perror("pthread_create\n");
             exit(1);
         }
 
-    for (size_t i = 0; i < 2; i++)
         if (pthread_join(threads[i], NULL) != 0)
         {
             perror("pthread_join\n");
             exit(1);
         }
+    }
 
     return 0;
 }

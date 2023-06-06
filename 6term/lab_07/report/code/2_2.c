@@ -32,19 +32,21 @@ int main(void)
                 {thread_func1, thread_func2};
 
     for (size_t i = 0; i < 2; i++)
+    {
         if (pthread_create(&threads[i], NULL,
                      thread_funcs[i], fd[i]) != 0)
         {
             perror("pthread_create\n");
             exit(1);
         }
-
-    for (size_t i = 0; i < 2; i++)
+        
         if (pthread_join(threads[i], NULL) != 0)
         {
             perror("pthread_join\n");
             exit(1);
         }
+
+    }
 
     return 0;
 }
