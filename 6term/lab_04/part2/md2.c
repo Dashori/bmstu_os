@@ -14,7 +14,6 @@ static int __init md_init(void) {
 
 //   printk( "+ module md2 use local from md1: %s\n", md1_local());
 
-
 //   printk( "+ module md2 use noexport from md1: %s\n", md1_noexport());
 
   return 0;
