@@ -1,5 +1,5 @@
 ifneq ($(KERNELRELEASE),)
-	obj-m := my_tasklet.o
+	obj-m := my_workqueue.o
 else
 	CURRENT = $(shell uname -r)
 	KDIR = /lib/modules/$(CURRENT)/build

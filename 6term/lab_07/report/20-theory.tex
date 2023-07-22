@@ -1,8 +1,8 @@
-\section{Используемые структуры}
+\section{Необходимые структуры}
+Версия ядра: 5.15.32
 
-Версия ядра: 5.15.32.
-\begin{code}
-	\captionof{listing}{struct \_IO\_FILE}
+\begin{code} 
+	\captionof{listing}{struct open\_flags}
 	\inputminted
 	[
 	frame=single,
@@ -15,12 +15,11 @@
 	xleftmargin=10pt,
 	]
 	{c}
-	{code/iofile.c}
+	{code/open_flags.c}
 \end{code}
 
-
 \begin{code}
-	\captionof{listing}{struct file}
+	\captionof{listing}{struct filename и struct audit\_names}
 	\inputminted
 	[
 	frame=single,
@@ -33,13 +32,11 @@
 	xleftmargin=10pt,
 	]
 	{c}
-	{code/file.c}
+	{code/filename.c}
 \end{code}
 
-
-
 \begin{code}
-	\captionof{listing}{struct stat}
+	\captionof{listing}{struct nameidata}	
 	\inputminted
 	[
 	frame=single,
@@ -52,5 +49,22 @@
 	xleftmargin=10pt,
 	]
 	{c}
-	{code/stat.c}
+	{code/name.c}
+\end{code}
+
+\begin{code}
+	\captionof{listing}{struct path и struct open\_how}	
+	\inputminted
+	[
+	frame=single,
+	framerule=0.5pt,
+	framesep=10pt,
+	fontsize=\small,
+	tabsize=4,
+	linenos,
+	numbersep=5pt,
+	xleftmargin=10pt,
+	]
+	{c}
+	{code/open_how.c}
 \end{code}
